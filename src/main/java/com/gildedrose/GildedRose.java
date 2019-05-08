@@ -11,24 +11,23 @@ class GildedRose {
         for (int i = 0; i < items.length; i++) {
             Item item = items[i];
             String name = item.name;
-            if (!isAgedBrie(name)
-                    && !isBackstagePasses(name)
-                    && !isSulfuras((name))) {
-                item.quality = calculateUpdatedQuality(item, -1);
+            int quality = item.quality;
+            if (isRegularItem(name)) {
+                quality = calculateUpdatedQuality(quality, -1);
             } else {
-                if (item.quality < 50) {
-                    item.quality = calculateUpdatedQuality(item, 1);
+                if (quality < 50) {
+                    quality = calculateUpdatedQuality(quality, 1);
 
                     if (isBackstagePasses(name)) {
                         if (item.sellIn < 11) {
-                            if (item.quality < 50) {
-                                item.quality = calculateUpdatedQuality(item, 1);
+                            if (quality < 50) {
+                                quality = calculateUpdatedQuality(quality, 1);
                             }
                         }
 
                         if (item.sellIn < 6) {
-                            if (item.quality < 50) {
-                                item.quality = calculateUpdatedQuality(item, 1);
+                            if (quality < 50) {
+                                quality = calculateUpdatedQuality(quality, 1);
                             }
                         }
                     }
@@ -42,27 +41,34 @@ class GildedRose {
             if (item.sellIn < 0) {
                 if (!isAgedBrie(name)) {
                     if (!isBackstagePasses(name)) {
-                        if (item.quality > 0) {
+                        if (quality > 0) {
                             if (!isSulfuras(name)) {
-                                item.quality = calculateUpdatedQuality(item, -1);
+                                quality = calculateUpdatedQuality(quality, -1);
                             }
                         }
                     } else {
-                        item.quality = calculateUpdatedQuality(item, -item.quality);
+                        quality = calculateUpdatedQuality(quality, -quality);
                     }
                 } else {
-                    if (item.quality < 50) {
-                        item.quality = calculateUpdatedQuality(item, 1);
+                    if (quality < 50) {
+                        quality = calculateUpdatedQuality(quality, 1);
                     }
                 }
             }
+            item.quality = quality;
         }
     }
 
-    private int calculateUpdatedQuality(Item item, int improvement) {
-        if (item.quality == 0)
+    private int calculateUpdatedQuality(int quality, int improvement) {
+        if (quality == 0)
             return 0;
-        return item.quality + improvement;
+        return quality + improvement;
+    }
+
+    private boolean isRegularItem(String name) {
+        return !isAgedBrie(name)
+                && !isBackstagePasses(name)
+                && !isSulfuras((name));
     }
 
     private boolean isSulfuras(String name) {
