@@ -7,19 +7,10 @@ import static org.junit.Assert.*;
 
 public class SulfurasTest {
 
-    private Item[] items;
-    private GildedRose inn;
-
-    @Before
-    public void setUp() {
-        items = new Item[1];
-        inn = new GildedRose(items);
-    }
-
     @Test
     public void sellIn10To5Days_qualityIncreasesBy2() {
         Item sulfuras = new Item("Sulfuras, Hand of Ragnaros", 0, 80);
-        items[0] = sulfuras;
+        GildedRose inn = new GildedRose(new Item[]{sulfuras});
 
         inn.updateQuality();
 
