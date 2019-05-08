@@ -22,3 +22,4 @@
 - [ ] Simplify item.quality - item.quality
 - [ ] Replace for loop with foreach
 - [ ] isSulfurus always inverted -> ?
+- [ ] Move check on quality always > 0 inside calculateUpdatedQuality
