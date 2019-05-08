@@ -11,7 +11,7 @@ class GildedRose {
         for (int i = 0; i < items.length; i++) {
             Item item = items[i];
             String name = item.name;
-            if (!name.equals("Aged Brie")
+            if (!isAgedBrie(name)
                     && !name.equals("Backstage passes to a TAFKAL80ETC concert")) {
                 if (item.quality > 0) {
                     if (!name.equals("Sulfuras, Hand of Ragnaros")) {
@@ -43,7 +43,7 @@ class GildedRose {
             }
 
             if (item.sellIn < 0) {
-                if (!name.equals("Aged Brie")) {
+                if (!isAgedBrie(name)) {
                     if (!name.equals("Backstage passes to a TAFKAL80ETC concert")) {
                         if (item.quality > 0) {
                             if (!name.equals("Sulfuras, Hand of Ragnaros")) {
@@ -60,5 +60,9 @@ class GildedRose {
                 }
             }
         }
+    }
+
+    private boolean isAgedBrie(String name) {
+        return name.equals("Aged Brie");
     }
 }
