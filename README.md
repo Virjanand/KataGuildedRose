@@ -4,5 +4,9 @@
 - [x] Regular item with quality 1 and sell by 1 - one day passes -> quality 0, sell by 0
 - [x] Regular item with quality 2 and sell by 0 - one day passes -> quality 0, sell by -1
 - [x] Regular item with quality 0 and sell by 1 - one day passes -> quality 0, sell by 0
-- [ ] "Aged Brie" with quality 1 and sell by 1 - one day passes -> quality 2, sell by 0
-- [ ] "Aged Brie" with quality 50 and sell by 1 - one day passes -> quality 50, sell by 0
+- [x] "Aged Brie" with quality 1 and sell by 1 - one day passes -> quality 2, sell by 0
+- [x] "Aged Brie" with quality 50 and sell by 1 - one day passes -> quality 50, sell by 0
+- [ ] "Sulfuras" with quality 80 and sell by 0 - one day passes -> quality 80, sell by 0
+- [ ] "Backstage passes" with quality 1 and sell by 10 - on day passes -> quality 3, sell by 9
+- [ ] "Backstage passes" with quality 1 and sell by 5 - on day passes -> quality 4, sell by 4
+- [ ] "Backstage passes" with quality 1 and sell by 0 - on day passes -> quality 0, sell by -1
