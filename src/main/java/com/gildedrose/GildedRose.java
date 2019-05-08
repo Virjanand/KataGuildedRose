@@ -34,9 +34,7 @@ class GildedRose {
                 if (!isAgedBrie(name)) {
                     if (!isBackstagePasses(name)) {
                         if (!isSulfuras(name)) {
-                            if (quality > 0) {
-                                quality = calculateUpdatedQuality(quality, -1);
-                            }
+                            quality = calculateUpdatedQuality(quality, -1);
                         }
                     } else {
                         quality = calculateUpdatedQuality(quality, -quality);
