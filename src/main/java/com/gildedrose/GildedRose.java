@@ -15,28 +15,26 @@ class GildedRose {
             if (isRegularItem(name)) {
                 quality = calculateUpdatedQuality(quality, -1);
             } else {
-                    quality = calculateUpdatedQuality(quality, 1);
+                quality = calculateUpdatedQuality(quality, 1);
 
-                    if (isBackstagePasses(name)) {
-                        if (item.sellIn < 11) {
-                            quality = calculateUpdatedQuality(quality, 1);
-                        }
-
-                        if (item.sellIn < 6) {
-                            quality = calculateUpdatedQuality(quality, 1);
-                        }
+                if (isBackstagePasses(name)) {
+                    if (item.sellIn < 11) {
+                        quality = calculateUpdatedQuality(quality, 1);
                     }
+
+                    if (item.sellIn < 6) {
+                        quality = calculateUpdatedQuality(quality, 1);
+                    }
+                }
             }
 
-            if (!isSulfuras(name)) {
-                item.sellIn = item.sellIn - 1;
-            }
+            updateSellIn(item);
 
             if (item.sellIn < 0) {
                 if (!isAgedBrie(name)) {
                     if (!isBackstagePasses(name)) {
-                        if (quality > 0) {
-                            if (!isSulfuras(name)) {
+                        if (!isSulfuras(name)) {
+                            if (quality > 0) {
                                 quality = calculateUpdatedQuality(quality, -1);
                             }
                         }
@@ -50,6 +48,12 @@ class GildedRose {
                 }
             }
             item.quality = quality;
+        }
+    }
+
+    private void updateSellIn(Item item) {
+        if (!isSulfuras(item.name)) {
+            item.sellIn = item.sellIn - 1;
         }
     }
 

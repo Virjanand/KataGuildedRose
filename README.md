@@ -25,5 +25,5 @@
 - [x] Move check on quality always > 0 inside calculateUpdatedQuality
 - [ ] Extract method isRegularItem
 - [ ] Push item checks into calculateUpdatedQuality()
-- [ ] Extract method updateSellIn()
+- [x] Extract method updateSellIn()
 - [x] Push check on maximum quality into calculateUpdatedQuality
