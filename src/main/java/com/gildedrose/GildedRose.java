@@ -15,23 +15,17 @@ class GildedRose {
             if (isRegularItem(name)) {
                 quality = calculateUpdatedQuality(quality, -1);
             } else {
-                if (quality < 50) {
                     quality = calculateUpdatedQuality(quality, 1);
 
                     if (isBackstagePasses(name)) {
                         if (item.sellIn < 11) {
-                            if (quality < 50) {
-                                quality = calculateUpdatedQuality(quality, 1);
-                            }
+                            quality = calculateUpdatedQuality(quality, 1);
                         }
 
                         if (item.sellIn < 6) {
-                            if (quality < 50) {
-                                quality = calculateUpdatedQuality(quality, 1);
-                            }
+                            quality = calculateUpdatedQuality(quality, 1);
                         }
                     }
-                }
             }
 
             if (!isSulfuras(name)) {
@@ -60,8 +54,8 @@ class GildedRose {
     }
 
     private int calculateUpdatedQuality(int quality, int improvement) {
-        if (quality == 0)
-            return 0;
+        if (quality == 0 || quality >= 50)
+            return quality;
         return quality + improvement;
     }
 
