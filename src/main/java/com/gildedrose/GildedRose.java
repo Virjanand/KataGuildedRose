@@ -3,11 +3,11 @@ package com.gildedrose;
 class GildedRose {
     Item[] items;
 
-    public GildedRose(Item[] items) {
+    GildedRose(Item[] items) {
         this.items = items;
     }
 
-    public void updateInventory() {
+    void updateInventory() {
         for (int i = 0; i < items.length; i++) {
             Item item = items[i];
             String name = item.name;
