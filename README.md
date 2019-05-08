@@ -12,7 +12,7 @@
 - [x] "Backstage passes" with quality 1 and sell by 0 - on day passes -> quality 0, sell by -1
 - [x] Remove duplication items[i] -> extract local variable
 - [x] Remove duplication item.name -> extract local variable
-- [ ] Remove duplication check on string "Aged Brie" -> extract method
-- [ ] Remove duplication check on string "Backstage passes..."
-- [ ] Remove duplication check on Sulfuras, ..."
+- [x] Remove duplication check on string "Aged Brie" -> extract method
+- [ ] Remove duplication check on string "Backstage passes..." -> extract method
+- [ ] Remove duplication check on Sulfuras, ..." -> extract method
 - [ ] Join nested if statement Aged Brie, backstage passes, and Sulfuras

@@ -12,7 +12,7 @@ class GildedRose {
             Item item = items[i];
             String name = item.name;
             if (!isAgedBrie(name)
-                    && !name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+                    && !isBackstagePasses(name)) {
                 if (item.quality > 0) {
                     if (!name.equals("Sulfuras, Hand of Ragnaros")) {
                         item.quality = item.quality - 1;
@@ -22,7 +22,7 @@ class GildedRose {
                 if (item.quality < 50) {
                     item.quality = item.quality + 1;
 
-                    if (name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+                    if (isBackstagePasses(name)) {
                         if (item.sellIn < 11) {
                             if (item.quality < 50) {
                                 item.quality = item.quality + 1;
@@ -44,7 +44,7 @@ class GildedRose {
 
             if (item.sellIn < 0) {
                 if (!isAgedBrie(name)) {
-                    if (!name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+                    if (!isBackstagePasses(name)) {
                         if (item.quality > 0) {
                             if (!name.equals("Sulfuras, Hand of Ragnaros")) {
                                 item.quality = item.quality - 1;
@@ -60,6 +60,10 @@ class GildedRose {
                 }
             }
         }
+    }
+
+    private boolean isBackstagePasses(String name) {
+        return name.equals("Backstage passes to a TAFKAL80ETC concert");
     }
 
     private boolean isAgedBrie(String name) {
