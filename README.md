@@ -14,5 +14,5 @@
 - [x] Remove duplication item.name -> extract local variable
 - [x] Remove duplication check on string "Aged Brie" -> extract method
 - [x] Remove duplication check on string "Backstage passes..." -> extract method
-- [] Remove duplication check on Sulfuras, ..." -> extract method
+- [x] Remove duplication check on Sulfuras, ..." -> extract method
 - [ ] Join nested if statement Aged Brie, backstage passes, and Sulfuras
