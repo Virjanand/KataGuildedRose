@@ -12,11 +12,10 @@ class GildedRose {
             Item item = items[i];
             String name = item.name;
             if (!isAgedBrie(name)
-                    && !isBackstagePasses(name)) {
+                    && !isBackstagePasses(name)
+                    && !isSulfuras((name))) {
                 if (item.quality > 0) {
-                    if (!isSulfuras(name)) {
                         item.quality = item.quality - 1;
-                    }
                 }
             } else {
                 if (item.quality < 50) {
