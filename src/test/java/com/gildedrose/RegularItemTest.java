@@ -9,7 +9,7 @@ import static org.junit.Assert.*;
 public class RegularItemTest {
 
     @Test
-    public void quality1SellBy1_After1Day_Quality0SellBy0() {
+    public void afterOneDay_qualityAndSellByMinus1() {
         Item regularItem = new Item("Regular", 1, 1);
         GildedRose inn = new GildedRose(new Item[]{regularItem});
 
@@ -20,7 +20,7 @@ public class RegularItemTest {
     }
 
     @Test
-    public void quality2SellBy0_After1Day_Quality0SellByMinus1() {
+    public void sellDatePassed_QualityMinus2SellByMinus1() {
         Item regularItem = new Item("Regular", 0, 1);
         GildedRose inn = new GildedRose(new Item[]{regularItem});
 
@@ -31,7 +31,7 @@ public class RegularItemTest {
     }
 
     @Test
-    public void quality0SellBy1_After1Day_Quality0SellBy0() {
+    public void qualityNeverNegative() {
         Item regularItem = new Item("Regular", 1, 0);
         GildedRose inn = new GildedRose(new Item[]{regularItem});
 
