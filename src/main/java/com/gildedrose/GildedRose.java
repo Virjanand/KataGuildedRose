@@ -14,9 +14,7 @@ class GildedRose {
             if (!isAgedBrie(name)
                     && !isBackstagePasses(name)
                     && !isSulfuras((name))) {
-                if (item.quality > 0) {
-                        item.quality = calculateUpdatedQuality(item, -1);
-                }
+                item.quality = calculateUpdatedQuality(item, -1);
             } else {
                 if (item.quality < 50) {
                     item.quality = calculateUpdatedQuality(item, 1);
@@ -62,6 +60,8 @@ class GildedRose {
     }
 
     private int calculateUpdatedQuality(Item item, int improvement) {
+        if (item.quality == 0)
+            return 0;
         return item.quality + improvement;
     }
 
