@@ -10,10 +10,7 @@ public class RegularItemTest {
 
     @Test
     public void afterOneDay_qualityAndSellByMinus1() {
-        Item regularItem = new Item("Regular", 1, 1);
-        GildedRose inn = new GildedRose(new Item[]{regularItem});
-
-        inn.updateQuality();
+        Item regularItem = createItem(1, 1);
 
         assertEquals(0, regularItem.quality);
         assertEquals(0, regularItem.sellIn);
@@ -21,10 +18,7 @@ public class RegularItemTest {
 
     @Test
     public void sellDatePassed_QualityMinus2SellByMinus1() {
-        Item regularItem = new Item("Regular", 0, 1);
-        GildedRose inn = new GildedRose(new Item[]{regularItem});
-
-        inn.updateQuality();
+        Item regularItem = createItem(0, 1);
 
         assertEquals(0, regularItem.quality);
         assertEquals(-1, regularItem.sellIn);
@@ -32,12 +26,16 @@ public class RegularItemTest {
 
     @Test
     public void qualityNeverNegative() {
-        Item regularItem = new Item("Regular", 1, 0);
-        GildedRose inn = new GildedRose(new Item[]{regularItem});
-
-        inn.updateQuality();
+        Item regularItem = createItem(1, 0);
 
         assertEquals(0, regularItem.quality);
         assertEquals(0, regularItem.sellIn);
+    }
+
+    private Item createItem(int sellBy, int quality) {
+        Item regularItem = new Item("Regular", sellBy, quality);
+        GildedRose inn = new GildedRose(new Item[]{regularItem});
+        inn.updateQuality();
+        return regularItem;
     }
 }
