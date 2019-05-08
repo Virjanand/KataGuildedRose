@@ -18,27 +18,27 @@ public class AgedBrieTest {
 
     @Test
     public void afterOneDay_qualityIncreasesAndSellByMinus1() {
-        Item regularItem = createItem(1, 1);
+        Item agedBrie = createItem(1, 1);
 
         inn.updateQuality();
 
-        assertEquals(2, regularItem.quality);
-        assertEquals(0, regularItem.sellIn);
+        assertEquals(2, agedBrie.quality);
+        assertEquals(0, agedBrie.sellIn);
     }
 
     @Test
     public void maximumQuality50() {
-        Item regularItem = createItem(1, 50);
+        Item agedBrie = createItem(1, 50);
 
         inn.updateQuality();
 
-        assertEquals(50, regularItem.quality);
-        assertEquals(0, regularItem.sellIn);
+        assertEquals(50, agedBrie.quality);
+        assertEquals(0, agedBrie.sellIn);
     }
 
     private Item createItem(int sellBy, int quality) {
-        Item regularItem = new Item("Aged Brie", sellBy, quality);
-        items[0] = regularItem;
-        return regularItem;
+        Item item = new Item("Aged Brie", sellBy, quality);
+        items[0] = item;
+        return item;
     }
 }
