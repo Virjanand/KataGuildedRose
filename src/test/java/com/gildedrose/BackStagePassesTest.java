@@ -26,6 +26,16 @@ public class BackStagePassesTest {
         assertEquals(9, regularItem.sellIn);
     }
 
+    @Test
+    public void sellIn5To0Days_qualityIncreasesBy3() {
+        Item regularItem = createItem(5, 1);
+
+        inn.updateQuality();
+
+        assertEquals(4, regularItem.quality);
+        assertEquals(4, regularItem.sellIn);
+    }
+
     private Item createItem(int sellBy, int quality) {
         Item regularItem = new Item("Backstage passes to a TAFKAL80ETC concert", sellBy, quality);
         items[0] = regularItem;
