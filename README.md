@@ -19,7 +19,7 @@
 - [x] Rename updateQuality to updateInventory
 - [ ] Extract method updateQuality(Item item, int improvement) for item.quality = ...
 - [x] Make methods package private
-- [ ] Simplify item.quality - item.quality
+- [x] Simplify item.quality - item.quality
 - [ ] Replace for loop with foreach
 - [ ] isSulfurus always inverted -> ?
 - [x] Move check on quality always > 0 inside calculateUpdatedQuality
