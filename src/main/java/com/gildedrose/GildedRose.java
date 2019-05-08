@@ -14,40 +14,32 @@ class GildedRose {
             int quality = item.quality;
             if (isRegularItem(name)) {
                 quality = calculateUpdatedQuality(quality, -1);
+                if (item.sellIn <= 0)
+                    quality = calculateUpdatedQuality(quality, -1);
             }
             if (isAgedBrie(name)) {
                 quality = calculateUpdatedQuality(quality, 1);
                 if (item.sellIn <= 0) {
                     quality = calculateUpdatedQuality(quality, 1);
                 }
-            } else {
+            }
+            if (isBackstagePasses(name)) {
                 quality = calculateUpdatedQuality(quality, 1);
 
-                if (isBackstagePasses(name)) {
-                    if (item.sellIn < 11) {
-                        quality = calculateUpdatedQuality(quality, 1);
-                    }
+                if (item.sellIn < 11) {
+                    quality = calculateUpdatedQuality(quality, 1);
+                }
 
-                    if (item.sellIn < 6) {
-                        quality = calculateUpdatedQuality(quality, 1);
-                    }
+                if (item.sellIn < 6) {
+                    quality = calculateUpdatedQuality(quality, 1);
+                }
+
+                if (item.sellIn <= 0) {
+                    quality = 0;
                 }
             }
-
 
             updateSellIn(item);
-
-            if (item.sellIn < 0) {
-                if (!isAgedBrie(name)) {
-                    if (!isBackstagePasses(name)) {
-                        if (!isSulfuras(name)) {
-                            quality = calculateUpdatedQuality(quality, -1);
-                        }
-                    } else {
-                        quality = calculateUpdatedQuality(quality, -quality);
-                    }
-                }
-            }
             item.quality = quality;
         }
     }

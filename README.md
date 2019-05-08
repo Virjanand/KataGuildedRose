@@ -28,5 +28,5 @@
 - [x] Extract method updateSellIn()
 - [x] Push check on maximum quality into calculateUpdatedQuality
 - [x] Reorder to use isAgedBrie -> all calculations for Brie
-- [ ] Reorder to do all calculations for backstage passes
-- [ ] Reorder to do all calculations for Sulfuras
+- [x] Reorder to do all calculations for backstage passes
+- [x] Reorder to do all calculations for Sulfuras
