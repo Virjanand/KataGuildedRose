@@ -26,6 +26,16 @@ public class AgedBrieTest {
         assertEquals(0, regularItem.sellIn);
     }
 
+    @Test
+    public void maximumQuality50() {
+        Item regularItem = createItem(1, 50);
+
+        inn.updateQuality();
+
+        assertEquals(50, regularItem.quality);
+        assertEquals(0, regularItem.sellIn);
+    }
+
     private Item createItem(int sellBy, int quality) {
         Item regularItem = new Item("Aged Brie", sellBy, quality);
         items[0] = regularItem;
