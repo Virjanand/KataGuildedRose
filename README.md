@@ -16,6 +16,6 @@
 - [x] Remove duplication check on string "Backstage passes..." -> extract method
 - [x] Remove duplication check on Sulfuras, ..." -> extract method
 - [x] Join nested if statement Aged Brie, backstage passes, and Sulfuras
-- [ ] Rename updateQuality to updateInventory
+- [x] Rename updateQuality to updateInventory
 - [ ] Extract method updateQuality(Item item, int improvement) for item.quality = ...
 - [ ] 

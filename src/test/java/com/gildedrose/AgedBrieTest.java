@@ -20,7 +20,7 @@ public class AgedBrieTest {
     public void afterOneDay_qualityIncreasesAndSellByMinus1() {
         Item agedBrie = createItem(1, 1);
 
-        inn.updateQuality();
+        inn.updateInventory();
 
         assertEquals(2, agedBrie.quality);
         assertEquals(0, agedBrie.sellIn);
@@ -30,7 +30,7 @@ public class AgedBrieTest {
     public void maximumQuality50() {
         Item agedBrie = createItem(1, 50);
 
-        inn.updateQuality();
+        inn.updateInventory();
 
         assertEquals(50, agedBrie.quality);
         assertEquals(0, agedBrie.sellIn);

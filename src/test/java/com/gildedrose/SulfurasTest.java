@@ -1,6 +1,5 @@
 package com.gildedrose;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -12,7 +11,7 @@ public class SulfurasTest {
         Item sulfuras = new Item("Sulfuras, Hand of Ragnaros", 0, 80);
         GildedRose inn = new GildedRose(new Item[]{sulfuras});
 
-        inn.updateQuality();
+        inn.updateInventory();
 
         assertEquals(80, sulfuras.quality);
         assertEquals(0, sulfuras.sellIn);
