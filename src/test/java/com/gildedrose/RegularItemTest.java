@@ -11,10 +11,11 @@ public class RegularItemTest {
     @Test
     public void quality1SellBy1_After1Day_Quality0SellBy0() {
         Item regularItem = new Item("Regular", 1, 1);
-        Item[] items = new Item[1];
-        items[0] = regularItem;
-        GildedRose inn = new GildedRose(items);
+        GildedRose inn = new GildedRose(new Item[]{regularItem});
+
         inn.updateQuality();
+
         assertEquals(0, regularItem.quality);
+        assertEquals(0, regularItem.sellIn);
     }
 }
