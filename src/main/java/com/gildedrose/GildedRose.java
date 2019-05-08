@@ -14,6 +14,12 @@ class GildedRose {
             int quality = item.quality;
             if (isRegularItem(name)) {
                 quality = calculateUpdatedQuality(quality, -1);
+            }
+            if (isAgedBrie(name)) {
+                quality = calculateUpdatedQuality(quality, 1);
+                if (item.sellIn <= 0) {
+                    quality = calculateUpdatedQuality(quality, 1);
+                }
             } else {
                 quality = calculateUpdatedQuality(quality, 1);
 
@@ -28,6 +34,7 @@ class GildedRose {
                 }
             }
 
+
             updateSellIn(item);
 
             if (item.sellIn < 0) {
@@ -38,10 +45,6 @@ class GildedRose {
                         }
                     } else {
                         quality = calculateUpdatedQuality(quality, -quality);
-                    }
-                } else {
-                    if (quality < 50) {
-                        quality = calculateUpdatedQuality(quality, 1);
                     }
                 }
             }
