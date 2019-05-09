@@ -20,34 +20,38 @@ class GildedRose {
 
     private int updateQuality(Item item) {
         String name = item.name;
-        int quality = item.quality;
+        int newQuality = item.quality;
         if (isRegularItem(name)) {
-            quality = calculateUpdatedQuality(quality, -1);
-            if (item.sellIn <= 0)
-                quality = calculateUpdatedQuality(quality, -1);
+            newQuality = calculateUpdatedQuality(newQuality, -1);
+            if (isSellInPassed(item))
+                newQuality = calculateUpdatedQuality(newQuality, -1);
         }
         if (isAgedBrie(name)) {
-            quality = calculateUpdatedQuality(quality, 1);
-            if (item.sellIn <= 0) {
-                quality = calculateUpdatedQuality(quality, 1);
+            newQuality = calculateUpdatedQuality(newQuality, 1);
+            if (isSellInPassed(item)) {
+                newQuality = calculateUpdatedQuality(newQuality, 1);
             }
         }
         if (isBackstagePasses(name)) {
-            quality = calculateUpdatedQuality(quality, 1);
+            newQuality = calculateUpdatedQuality(newQuality, 1);
 
             if (item.sellIn < 11) {
-                quality = calculateUpdatedQuality(quality, 1);
+                newQuality = calculateUpdatedQuality(newQuality, 1);
             }
 
             if (item.sellIn < 6) {
-                quality = calculateUpdatedQuality(quality, 1);
+                newQuality = calculateUpdatedQuality(newQuality, 1);
             }
 
-            if (item.sellIn <= 0) {
-                quality = 0;
+            if (isSellInPassed(item)) {
+                newQuality = 0;
             }
         }
-        return quality;
+        return newQuality;
+    }
+
+    private boolean isSellInPassed(Item item) {
+        return item.sellIn <= 0;
     }
 
     private int updateSellIn(Item item) {

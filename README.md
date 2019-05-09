@@ -35,3 +35,4 @@
 - [ ] Create abstract class SellableItem in order to wrap items in RegularItem and AgedBrieItem, etc.
 - [ ] Move updateItem to SellableItem class
 - [ ] Override updateItem method in AgedBrie, etc.
+- [ ] Extract isSellInPassed check
