@@ -7,9 +7,17 @@ public class SellableItem {
         this.item = item;
     }
 
+    protected void setQualityItem(int quality) {
+        this.item.quality = quality;
+    }
+
+    protected void setSellInItem(int days) {
+        this.item.sellIn = days;
+    }
+
     public void updateItem() {
-        item.quality = updateQuality();
-        item.sellIn = updateSellIn();
+        setQualityItem(updateQuality());
+        setSellInItem(updateSellIn());
     }
 
     private int updateQuality() {

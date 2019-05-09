@@ -34,6 +34,10 @@
 - [x] Make updateSellIn similar to updateQuality
 - [x] Create class SellableItem in order to wrap items in RegularItem and AgedBrieItem, etc.
 - [x] Move updateItem to SellableItem class
+- [x] Create subclass of SellableItem RegularItem
+- [x] Encapsulate field item quality
+- [x] Encapsulate field item sellIn
+- [ ] Override updateItem method in RegularItem
 - [ ] Create subclass of SellableItem AgedBrieItem
 - [ ] Override updateItem method in AgedBrie, etc.
 - [x] Extract isSellInPassed check
