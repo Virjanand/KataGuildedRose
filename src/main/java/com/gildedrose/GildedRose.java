@@ -8,8 +8,8 @@ class GildedRose {
     }
 
     void updateInventory() {
-        for (int i = 0; i < items.length; i++) {
-            updateItem(items[i]);
+        for (Item item : items) {
+            updateItem(item);
         }
     }
 
