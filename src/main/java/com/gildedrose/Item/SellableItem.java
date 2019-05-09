@@ -7,15 +7,23 @@ public class SellableItem {
         this.item = item;
     }
 
-    protected int getItemQuality() {
+    private String getName() {
+        return item.name;
+    }
+
+    int getItemQuality() {
         return item.quality;
     }
 
-    protected void setItemQuality(int quality) {
+    void setItemQuality(int quality) {
         this.item.quality = quality;
     }
 
-    protected void setItemSellIn(int days) {
+    int getItemSellIn() {
+        return item.sellIn;
+    }
+
+    void setItemSellIn(int days) {
         this.item.sellIn = days;
     }
 
@@ -25,7 +33,7 @@ public class SellableItem {
     }
 
     private int updateQuality() {
-        int newQuality = item.quality;
+        int newQuality = getItemQuality();
         if (isRegularItem()) {
             newQuality = calculateUpdatedQuality(newQuality, -1);
             if (isSellInPassed())
@@ -40,11 +48,11 @@ public class SellableItem {
         if (isBackstagePasses()) {
             newQuality = calculateUpdatedQuality(newQuality, 1);
 
-            if (item.sellIn < 11) {
+            if (getItemSellIn() < 11) {
                 newQuality = calculateUpdatedQuality(newQuality, 1);
             }
 
-            if (item.sellIn < 6) {
+            if (getItemSellIn() < 6) {
                 newQuality = calculateUpdatedQuality(newQuality, 1);
             }
 
@@ -58,11 +66,11 @@ public class SellableItem {
     private int updateSellIn() {
         if (isSulfuras())
             return 0;
-        return item.sellIn - 1;
+        return getItemSellIn() - 1;
     }
 
-    protected boolean isSellInPassed() {
-        return item.sellIn <= 0;
+    boolean isSellInPassed() {
+        return getItemSellIn() <= 0;
     }
 
     private int calculateUpdatedQuality(int quality, int improvement) {
@@ -78,14 +86,14 @@ public class SellableItem {
     }
 
     private boolean isSulfuras() {
-        return item.name.equals("Sulfuras, Hand of Ragnaros");
+        return getName().equals("Sulfuras, Hand of Ragnaros");
     }
 
     private boolean isBackstagePasses() {
-        return item.name.equals("Backstage passes to a TAFKAL80ETC concert");
+        return getName().equals("Backstage passes to a TAFKAL80ETC concert");
     }
 
     private boolean isAgedBrie() {
-        return item.name.equals("Aged Brie");
+        return getName().equals("Aged Brie");
     }
 }
