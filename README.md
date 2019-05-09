@@ -37,7 +37,7 @@
 - [x] Create subclass of SellableItem RegularItem
 - [x] Encapsulate field item quality
 - [x] Encapsulate field item sellIn
-- [ ] Override updateItem method in RegularItem
+- [x] Override updateItem method in RegularItem
 - [ ] Create subclass of SellableItem AgedBrieItem
 - [ ] Override updateItem method in AgedBrie, etc.
 - [x] Extract isSellInPassed check
