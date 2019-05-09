@@ -7,34 +7,37 @@ public class SellableItem {
         this.item = item;
     }
 
-    protected void setQualityItem(int quality) {
+    protected int getItemQuality() {
+        return item.quality;
+    }
+
+    protected void setItemQuality(int quality) {
         this.item.quality = quality;
     }
 
-    protected void setSellInItem(int days) {
+    protected void setItemSellIn(int days) {
         this.item.sellIn = days;
     }
 
     public void updateItem() {
-        setQualityItem(updateQuality());
-        setSellInItem(updateSellIn());
+        setItemQuality(updateQuality());
+        setItemSellIn(updateSellIn());
     }
 
     private int updateQuality() {
-        String name = item.name;
         int newQuality = item.quality;
-        if (isRegularItem(name)) {
+        if (isRegularItem()) {
             newQuality = calculateUpdatedQuality(newQuality, -1);
-            if (isSellInPassed(item))
+            if (isSellInPassed())
                 newQuality = calculateUpdatedQuality(newQuality, -1);
         }
-        if (isAgedBrie(name)) {
+        if (isAgedBrie()) {
             newQuality = calculateUpdatedQuality(newQuality, 1);
-            if (isSellInPassed(item)) {
+            if (isSellInPassed()) {
                 newQuality = calculateUpdatedQuality(newQuality, 1);
             }
         }
-        if (isBackstagePasses(name)) {
+        if (isBackstagePasses()) {
             newQuality = calculateUpdatedQuality(newQuality, 1);
 
             if (item.sellIn < 11) {
@@ -45,7 +48,7 @@ public class SellableItem {
                 newQuality = calculateUpdatedQuality(newQuality, 1);
             }
 
-            if (isSellInPassed(item)) {
+            if (isSellInPassed()) {
                 newQuality = 0;
             }
         }
@@ -53,12 +56,12 @@ public class SellableItem {
     }
 
     private int updateSellIn() {
-        if (isSulfuras(item.name))
+        if (isSulfuras())
             return 0;
         return item.sellIn - 1;
     }
 
-    private boolean isSellInPassed(Item item) {
+    protected boolean isSellInPassed() {
         return item.sellIn <= 0;
     }
 
@@ -68,21 +71,21 @@ public class SellableItem {
         return quality + improvement;
     }
 
-    private boolean isRegularItem(String name) {
-        return !isAgedBrie(name)
-                && !isBackstagePasses(name)
-                && !isSulfuras((name));
+    private boolean isRegularItem() {
+        return !isAgedBrie()
+                && !isBackstagePasses()
+                && !isSulfuras();
     }
 
-    private boolean isSulfuras(String name) {
-        return name.equals("Sulfuras, Hand of Ragnaros");
+    private boolean isSulfuras() {
+        return item.name.equals("Sulfuras, Hand of Ragnaros");
     }
 
-    private boolean isBackstagePasses(String name) {
-        return name.equals("Backstage passes to a TAFKAL80ETC concert");
+    private boolean isBackstagePasses() {
+        return item.name.equals("Backstage passes to a TAFKAL80ETC concert");
     }
 
-    private boolean isAgedBrie(String name) {
-        return name.equals("Aged Brie");
+    private boolean isAgedBrie() {
+        return item.name.equals("Aged Brie");
     }
 }
