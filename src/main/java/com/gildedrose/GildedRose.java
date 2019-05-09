@@ -1,5 +1,8 @@
 package com.gildedrose;
 
+import com.gildedrose.Item.Item;
+import com.gildedrose.Item.SellableItem;
+
 import java.util.ArrayList;
 import java.util.List;
 

@@ -33,6 +33,7 @@
 - [x] Extract method in for loop
 - [x] Make updateSellIn similar to updateQuality
 - [x] Create class SellableItem in order to wrap items in RegularItem and AgedBrieItem, etc.
-- [ ] Move updateItem to SellableItem class
+- [x] Move updateItem to SellableItem class
+- [ ] Create subclass of SellableItem AgedBrieItem
 - [ ] Override updateItem method in AgedBrie, etc.
 - [x] Extract isSellInPassed check

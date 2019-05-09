@@ -1,13 +1,13 @@
-package com.gildedrose;
+package com.gildedrose.Item;
 
-class SellableItem {
+public class SellableItem {
     private Item item;
 
-    SellableItem(Item item) {
+    public SellableItem(Item item) {
         this.item = item;
     }
 
-    void updateItem() {
+    public void updateItem() {
         item.quality = updateQuality();
         item.sellIn = updateSellIn();
     }
