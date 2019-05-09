@@ -9,45 +9,51 @@ class GildedRose {
 
     void updateInventory() {
         for (int i = 0; i < items.length; i++) {
-            Item item = items[i];
-            String name = item.name;
-            int quality = item.quality;
-            if (isRegularItem(name)) {
-                quality = calculateUpdatedQuality(quality, -1);
-                if (item.sellIn <= 0)
-                    quality = calculateUpdatedQuality(quality, -1);
-            }
-            if (isAgedBrie(name)) {
-                quality = calculateUpdatedQuality(quality, 1);
-                if (item.sellIn <= 0) {
-                    quality = calculateUpdatedQuality(quality, 1);
-                }
-            }
-            if (isBackstagePasses(name)) {
-                quality = calculateUpdatedQuality(quality, 1);
-
-                if (item.sellIn < 11) {
-                    quality = calculateUpdatedQuality(quality, 1);
-                }
-
-                if (item.sellIn < 6) {
-                    quality = calculateUpdatedQuality(quality, 1);
-                }
-
-                if (item.sellIn <= 0) {
-                    quality = 0;
-                }
-            }
-
-            updateSellIn(item);
-            item.quality = quality;
+            updateItem(items[i]);
         }
     }
 
-    private void updateSellIn(Item item) {
-        if (!isSulfuras(item.name)) {
-            item.sellIn = item.sellIn - 1;
+    private void updateItem(Item item) {
+        item.quality = updateQuality(item);
+        item.sellIn = updateSellIn(item);
+    }
+
+    private int updateQuality(Item item) {
+        String name = item.name;
+        int quality = item.quality;
+        if (isRegularItem(name)) {
+            quality = calculateUpdatedQuality(quality, -1);
+            if (item.sellIn <= 0)
+                quality = calculateUpdatedQuality(quality, -1);
         }
+        if (isAgedBrie(name)) {
+            quality = calculateUpdatedQuality(quality, 1);
+            if (item.sellIn <= 0) {
+                quality = calculateUpdatedQuality(quality, 1);
+            }
+        }
+        if (isBackstagePasses(name)) {
+            quality = calculateUpdatedQuality(quality, 1);
+
+            if (item.sellIn < 11) {
+                quality = calculateUpdatedQuality(quality, 1);
+            }
+
+            if (item.sellIn < 6) {
+                quality = calculateUpdatedQuality(quality, 1);
+            }
+
+            if (item.sellIn <= 0) {
+                quality = 0;
+            }
+        }
+        return quality;
+    }
+
+    private int updateSellIn(Item item) {
+        if (isSulfuras(item.name))
+            return 0;
+        return item.sellIn - 1;
     }
 
     private int calculateUpdatedQuality(int quality, int improvement) {

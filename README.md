@@ -21,7 +21,7 @@
 - [x] Make methods package private
 - [x] Simplify item.quality - item.quality
 - [ ] Replace for loop with foreach
-- [ ] isSulfurus always inverted -> ?
+- [x] isSulfurus always inverted -> ?
 - [x] Move check on quality always > 0 inside calculateUpdatedQuality
 - [x] Extract method isRegularItem
 - [ ] ~~Push item checks into calculateUpdatedQuality()~~
@@ -30,3 +30,8 @@
 - [x] Reorder to use isAgedBrie -> all calculations for Brie
 - [x] Reorder to do all calculations for backstage passes
 - [x] Reorder to do all calculations for Sulfuras
+- [x] Extract method in for loop
+- [x] Make updateSellIn similar to updateQuality
+- [ ] Create abstract class SellableItem in order to wrap items in RegularItem and AgedBrieItem, etc.
+- [ ] Move updateItem to SellableItem class
+- [ ] Override updateItem method in AgedBrie, etc.
