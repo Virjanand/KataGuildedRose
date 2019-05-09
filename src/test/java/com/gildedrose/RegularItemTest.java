@@ -1,24 +1,15 @@
 package com.gildedrose;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class RegularItemTest {
 
-    private Item[] items;
-    private GildedRose inn;
-
-    @Before
-    public void setUp() {
-        items = new Item[1];
-        inn = new GildedRose(items);
-    }
-
     @Test
     public void afterOneDay_qualityAndSellByMinus1() {
         Item regularItem = createItem(1, 1);
+        GildedRose inn = new GildedRose(new Item[]{regularItem});
 
         inn.updateInventory();
 
@@ -29,6 +20,7 @@ public class RegularItemTest {
     @Test
     public void sellDatePassed_QualityMinus2SellByMinus1() {
         Item regularItem = createItem(0, 1);
+        GildedRose inn = new GildedRose(new Item[]{regularItem});
 
         inn.updateInventory();
 
@@ -39,6 +31,7 @@ public class RegularItemTest {
     @Test
     public void qualityNeverNegative() {
         Item regularItem = createItem(1, 0);
+        GildedRose inn = new GildedRose(new Item[]{regularItem});
 
         inn.updateInventory();
 
@@ -47,8 +40,6 @@ public class RegularItemTest {
     }
 
     private Item createItem(int sellBy, int quality) {
-        Item regularItem = new Item("Regular", sellBy, quality);
-        items[0] = regularItem;
-        return regularItem;
+        return new Item("Regular", sellBy, quality);
     }
 }

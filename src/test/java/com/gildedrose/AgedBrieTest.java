@@ -1,24 +1,15 @@
 package com.gildedrose;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class AgedBrieTest {
 
-    private Item[] items;
-    private GildedRose inn;
-
-    @Before
-    public void setUp() {
-        items = new Item[1];
-        inn = new GildedRose(items);
-    }
-
     @Test
     public void afterOneDay_qualityIncreasesAndSellByMinus1() {
         Item agedBrie = createItem(1, 1);
+        GildedRose inn = new GildedRose(new Item[]{agedBrie});
 
         inn.updateInventory();
 
@@ -29,6 +20,7 @@ public class AgedBrieTest {
     @Test
     public void maximumQuality50() {
         Item agedBrie = createItem(1, 50);
+        GildedRose inn = new GildedRose(new Item[]{agedBrie});
 
         inn.updateInventory();
 
@@ -37,8 +29,6 @@ public class AgedBrieTest {
     }
 
     private Item createItem(int sellBy, int quality) {
-        Item item = new Item("Aged Brie", sellBy, quality);
-        items[0] = item;
-        return item;
+        return new Item("Aged Brie", sellBy, quality);
     }
 }

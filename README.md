@@ -32,7 +32,7 @@
 - [x] Reorder to do all calculations for Sulfuras
 - [x] Extract method in for loop
 - [x] Make updateSellIn similar to updateQuality
-- [ ] Create abstract class SellableItem in order to wrap items in RegularItem and AgedBrieItem, etc.
+- [x] Create class SellableItem in order to wrap items in RegularItem and AgedBrieItem, etc.
 - [ ] Move updateItem to SellableItem class
 - [ ] Override updateItem method in AgedBrie, etc.
 - [x] Extract isSellInPassed check
