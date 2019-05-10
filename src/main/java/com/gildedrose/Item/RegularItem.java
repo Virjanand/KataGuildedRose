@@ -12,16 +12,14 @@ public class RegularItem extends SellableItem {
     }
 
     protected int updateQuality() {
-        int newQuality = getItemQuality();
-        newQuality = calculateUpdatedQuality(newQuality, -1);
         if (isSellInPassed())
-            newQuality = calculateUpdatedQuality(newQuality, -1);
-        return newQuality;
+            return calculateUpdatedQuality(-1);
+        return calculateUpdatedQuality(-1);
     }
 
-    private int calculateUpdatedQuality(int quality, int improvement) {
-        if (quality == MINQUALITY)
-            return quality;
-        return quality + improvement;
+    private int calculateUpdatedQuality(int improvement) {
+        if (getItemQuality() == MINQUALITY)
+            return getItemQuality();
+        return getItemQuality() + improvement;
     }
 }

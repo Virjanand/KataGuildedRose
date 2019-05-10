@@ -51,3 +51,4 @@
 - [ ] Refactor calculateUpdatedQuality method
 - [x] Replace magic number 0 and 50 with MINQUALITY and MAXQUALITY
 - [ ] Extract method calculateUpdatedQuality if condition
+- [x] Refactor updateQuality: make if more readable

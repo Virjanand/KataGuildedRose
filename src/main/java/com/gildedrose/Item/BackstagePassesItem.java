@@ -12,26 +12,24 @@ public class BackstagePassesItem extends SellableItem {
     }
 
     protected int updateQuality() {
-        int newQuality = getItemQuality();
-        newQuality = calculateUpdatedQuality(newQuality, 1);
-
-        if (getItemSellIn() < 11) {
-            newQuality = calculateUpdatedQuality(newQuality, 1);
+        if (isSellInPassed()) {
+            return 0;
         }
 
         if (getItemSellIn() < 6) {
-            newQuality = calculateUpdatedQuality(newQuality, 1);
+            return calculateUpdatedQuality(3);
         }
 
-        if (isSellInPassed()) {
-            newQuality = 0;
+        if (getItemSellIn() < 11) {
+            return calculateUpdatedQuality(2);
         }
-        return newQuality;
+
+        return calculateUpdatedQuality(1);
     }
 
-    private int calculateUpdatedQuality(int quality, int improvement) {
-        if (quality == MINQUALITY || quality >= MAXQUALITY)
-            return quality;
-        return quality + improvement;
+    private int calculateUpdatedQuality(int improvement) {
+        if (getItemQuality() == MINQUALITY || getItemQuality() >= MAXQUALITY)
+            return getItemQuality();
+        return getItemQuality() + improvement;
     }
 }
