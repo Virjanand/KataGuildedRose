@@ -5,7 +5,7 @@ public class SellableItem {
 
     public static SellableItem create(Item item) {
         if (item.name.equals("Aged Brie"))
-            return new SellableItem(item);
+            return new AgedBrieItem(item);
         if (item.name.equals(("Backstage passes to a TAFKAL80ETC concert")))
             return new SellableItem(item);
         if (item.name.equals("Sulfuras, Hand of Ragnaros"))
@@ -44,12 +44,6 @@ public class SellableItem {
 
     private int updateQuality() {
         int newQuality = getItemQuality();
-        if (isAgedBrie()) {
-            newQuality = calculateUpdatedQuality(newQuality, 1);
-            if (isSellInPassed()) {
-                newQuality = calculateUpdatedQuality(newQuality, 1);
-            }
-        }
         if (isBackstagePasses()) {
             newQuality = calculateUpdatedQuality(newQuality, 1);
 
@@ -90,9 +84,5 @@ public class SellableItem {
 
     private boolean isBackstagePasses() {
         return getName().equals("Backstage passes to a TAFKAL80ETC concert");
-    }
-
-    private boolean isAgedBrie() {
-        return getName().equals("Aged Brie");
     }
 }

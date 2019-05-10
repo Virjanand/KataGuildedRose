@@ -40,7 +40,9 @@
 - [x] Override updateItem method in RegularItem
 - [x] Create factory in SellableItem to create correct subclass
 - [x] Substitute if statements on regular item with subclass
-- [ ] Create subclass of SellableItem AgedBrieItem
+- [x] Create subclass of SellableItem AgedBrieItem
+- [ ] Create subclass of Backstage passes
+- [ ] Create subclass of Sulfuras
 - [ ] Override updateItem method in AgedBrie, etc.
 - [x] Extract isSellInPassed check
 - [ ] Can constructor be made private?

@@ -1,8 +1,8 @@
 package com.gildedrose.Item;
 
-public class RegularItem extends SellableItem {
+public class AgedBrieItem extends SellableItem {
 
-    protected RegularItem(Item item) {
+    protected AgedBrieItem(Item item) {
         super(item);
     }
 
@@ -13,9 +13,10 @@ public class RegularItem extends SellableItem {
 
     private int updateQuality() {
         int newQuality = getItemQuality();
-        newQuality = calculateUpdatedQuality(newQuality, -1);
-        if (isSellInPassed())
-            newQuality = calculateUpdatedQuality(newQuality, -1);
+        newQuality = calculateUpdatedQuality(newQuality, 1);
+        if (isSellInPassed()) {
+            newQuality = calculateUpdatedQuality(newQuality, 1);
+        }
         return newQuality;
     }
 
@@ -24,7 +25,7 @@ public class RegularItem extends SellableItem {
     }
 
     private int calculateUpdatedQuality(int quality, int improvement) {
-        if (quality == 0)
+        if (quality == 0 || quality >= 50)
             return quality;
         return quality + improvement;
     }
