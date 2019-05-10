@@ -2,8 +2,8 @@ package com.gildedrose.Item;
 
 public abstract class SellableItem {
     private Item item;
-    static final int MAXQUALITY = 50;
-    static final int MINQUALITY = 0;
+    private static final int MAXQUALITY = 50;
+    private static final int MINQUALITY = 0;
 
     public static SellableItem create(Item item) {
         switch (item.name) {
@@ -51,5 +51,11 @@ public abstract class SellableItem {
 
     boolean isSellInPassed() {
         return getItemSellIn() <= 0;
+    }
+
+    int calculateUpdatedQuality(int improvement) {
+        if (getItemQuality() == MINQUALITY || getItemQuality() >= MAXQUALITY)
+            return getItemQuality();
+        return getItemQuality() + improvement;
     }
 }

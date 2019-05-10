@@ -16,10 +16,4 @@ public class RegularItem extends SellableItem {
             return calculateUpdatedQuality(-1);
         return calculateUpdatedQuality(-1);
     }
-
-    private int calculateUpdatedQuality(int improvement) {
-        if (getItemQuality() == MINQUALITY)
-            return getItemQuality();
-        return getItemQuality() + improvement;
-    }
 }
