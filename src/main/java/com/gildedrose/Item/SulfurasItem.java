@@ -11,11 +11,11 @@ public class SulfurasItem extends SellableItem {
         setItemSellIn(updateSellIn());
     }
 
-    private int updateQuality() {
+    protected int updateQuality() {
         return getItemQuality();
     }
 
-    private int updateSellIn() {
+    protected int updateSellIn() {
         return 0;
     }
 }

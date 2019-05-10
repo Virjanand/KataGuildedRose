@@ -1,6 +1,6 @@
 package com.gildedrose.Item;
 
-public class SellableItem {
+public abstract class SellableItem {
     private Item item;
 
     public static SellableItem create(Item item) {
@@ -15,10 +15,6 @@ public class SellableItem {
 
     protected SellableItem(Item item) {
         this.item = item;
-    }
-
-    private String getName() {
-        return item.name;
     }
 
     int getItemQuality() {
@@ -38,21 +34,17 @@ public class SellableItem {
     }
 
     public void updateItem() {
-        setItemQuality(getItemQuality());
+        setItemQuality(updateQuality());
         setItemSellIn(updateSellIn());
     }
 
-    private int updateSellIn() {
-        if (isSulfuras())
-            return 0;
+    protected abstract int updateQuality();
+
+    protected int updateSellIn() {
         return getItemSellIn() - 1;
     }
 
     boolean isSellInPassed() {
         return getItemSellIn() <= 0;
-    }
-
-    private boolean isSulfuras() {
-        return getName().equals("Sulfuras, Hand of Ragnaros");
     }
 }
