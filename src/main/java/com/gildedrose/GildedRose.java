@@ -13,7 +13,7 @@ class GildedRose {
     GildedRose(Item[] items) {
         this.items = items;
         for (Item item : items) {
-            sellableItems.add(new SellableItem(item));
+            sellableItems.add(SellableItem.create(item));
         }
     }
 

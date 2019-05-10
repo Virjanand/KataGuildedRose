@@ -3,7 +3,17 @@ package com.gildedrose.Item;
 public class SellableItem {
     private Item item;
 
-    public SellableItem(Item item) {
+    public static SellableItem create(Item item) {
+        if (item.name.equals("Aged Brie"))
+            return new SellableItem(item);
+        if (item.name.equals(("Backstage passes to a TAFKAL80ETC concert")))
+            return new SellableItem(item);
+        if (item.name.equals("Sulfuras, Hand of Ragnaros"))
+            return new SellableItem(item);
+        return new RegularItem(item);
+    }
+
+    protected SellableItem(Item item) {
         this.item = item;
     }
 
@@ -34,11 +44,6 @@ public class SellableItem {
 
     private int updateQuality() {
         int newQuality = getItemQuality();
-        if (isRegularItem()) {
-            newQuality = calculateUpdatedQuality(newQuality, -1);
-            if (isSellInPassed())
-                newQuality = calculateUpdatedQuality(newQuality, -1);
-        }
         if (isAgedBrie()) {
             newQuality = calculateUpdatedQuality(newQuality, 1);
             if (isSellInPassed()) {
@@ -77,12 +82,6 @@ public class SellableItem {
         if (quality == 0 || quality >= 50)
             return quality;
         return quality + improvement;
-    }
-
-    private boolean isRegularItem() {
-        return !isAgedBrie()
-                && !isBackstagePasses()
-                && !isSulfuras();
     }
 
     private boolean isSulfuras() {

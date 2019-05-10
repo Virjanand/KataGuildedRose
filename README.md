@@ -38,6 +38,9 @@
 - [x] Encapsulate field item quality
 - [x] Encapsulate field item sellIn
 - [x] Override updateItem method in RegularItem
+- [x] Create factory in SellableItem to create correct subclass
+- [x] Substitute if statements on regular item with subclass
 - [ ] Create subclass of SellableItem AgedBrieItem
 - [ ] Override updateItem method in AgedBrie, etc.
 - [x] Extract isSellInPassed check
+- [ ] Can constructor be made private?
