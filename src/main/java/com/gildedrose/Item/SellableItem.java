@@ -19,7 +19,19 @@ public abstract class SellableItem {
     }
 
     protected SellableItem(Item item) {
+
         this.item = item;
+    }
+
+    public void updateItem() {
+        setItemQuality(updateQuality());
+        setItemSellIn(updateSellIn());
+    }
+
+    abstract int updateQuality();
+
+    int updateSellIn() {
+        return getItemSellIn() - 1;
     }
 
     int getItemQuality() {
@@ -36,17 +48,6 @@ public abstract class SellableItem {
 
     void setItemSellIn(int days) {
         this.item.sellIn = days;
-    }
-
-    public void updateItem() {
-        setItemQuality(updateQuality());
-        setItemSellIn(updateSellIn());
-    }
-
-    protected abstract int updateQuality();
-
-    protected int updateSellIn() {
-        return getItemSellIn() - 1;
     }
 
     boolean isSellInPassed() {
