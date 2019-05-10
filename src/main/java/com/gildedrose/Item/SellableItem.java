@@ -7,7 +7,7 @@ public class SellableItem {
         if (item.name.equals("Aged Brie"))
             return new AgedBrieItem(item);
         if (item.name.equals(("Backstage passes to a TAFKAL80ETC concert")))
-            return new SellableItem(item);
+            return new BackstagePassesItem(item);
         if (item.name.equals("Sulfuras, Hand of Ragnaros"))
             return new SellableItem(item);
         return new RegularItem(item);
@@ -38,28 +38,8 @@ public class SellableItem {
     }
 
     public void updateItem() {
-        setItemQuality(updateQuality());
+        setItemQuality(getItemQuality());
         setItemSellIn(updateSellIn());
-    }
-
-    private int updateQuality() {
-        int newQuality = getItemQuality();
-        if (isBackstagePasses()) {
-            newQuality = calculateUpdatedQuality(newQuality, 1);
-
-            if (getItemSellIn() < 11) {
-                newQuality = calculateUpdatedQuality(newQuality, 1);
-            }
-
-            if (getItemSellIn() < 6) {
-                newQuality = calculateUpdatedQuality(newQuality, 1);
-            }
-
-            if (isSellInPassed()) {
-                newQuality = 0;
-            }
-        }
-        return newQuality;
     }
 
     private int updateSellIn() {
@@ -72,17 +52,7 @@ public class SellableItem {
         return getItemSellIn() <= 0;
     }
 
-    private int calculateUpdatedQuality(int quality, int improvement) {
-        if (quality == 0 || quality >= 50)
-            return quality;
-        return quality + improvement;
-    }
-
     private boolean isSulfuras() {
         return getName().equals("Sulfuras, Hand of Ragnaros");
-    }
-
-    private boolean isBackstagePasses() {
-        return getName().equals("Backstage passes to a TAFKAL80ETC concert");
     }
 }

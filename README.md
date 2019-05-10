@@ -41,7 +41,7 @@
 - [x] Create factory in SellableItem to create correct subclass
 - [x] Substitute if statements on regular item with subclass
 - [x] Create subclass of SellableItem AgedBrieItem
-- [ ] Create subclass of Backstage passes
+- [x] Create subclass of Backstage passes
 - [ ] Create subclass of Sulfuras
 - [ ] Override updateItem method in AgedBrie, etc.
 - [x] Extract isSellInPassed check
