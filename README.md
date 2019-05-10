@@ -48,3 +48,4 @@
 - [ ] Can constructor be made private?
 - [ ] Check which methods can be removed on superclass
 - [ ] In factory method use switch
+- [ ] Refactor calculateUpdatedQuality method
