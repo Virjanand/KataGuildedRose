@@ -4,13 +4,16 @@ public abstract class SellableItem {
     private Item item;
 
     public static SellableItem create(Item item) {
-        if (item.name.equals("Aged Brie"))
-            return new AgedBrieItem(item);
-        if (item.name.equals(("Backstage passes to a TAFKAL80ETC concert")))
-            return new BackstagePassesItem(item);
-        if (item.name.equals("Sulfuras, Hand of Ragnaros"))
-            return new SulfurasItem(item);
-        return new RegularItem(item);
+        switch (item.name) {
+            case "Aged Brie":
+                return new AgedBrieItem(item);
+            case "Backstage passes to a TAFKAL80ETC concert":
+                return new BackstagePassesItem(item);
+            case "Sulfuras, Hand of Ragnaros":
+                return new SulfurasItem(item);
+            default:
+                return new RegularItem(item);
+        }
     }
 
     protected SellableItem(Item item) {
