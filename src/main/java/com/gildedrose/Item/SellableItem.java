@@ -2,6 +2,8 @@ package com.gildedrose.Item;
 
 public abstract class SellableItem {
     private Item item;
+    static final int MAXQUALITY = 50;
+    static final int MINQUALITY = 0;
 
     public static SellableItem create(Item item) {
         switch (item.name) {

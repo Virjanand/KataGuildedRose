@@ -21,7 +21,7 @@ public class AgedBrieItem extends SellableItem {
     }
 
     private int calculateUpdatedQuality(int quality, int improvement) {
-        if (quality == 0 || quality >= 50)
+        if (quality == MINQUALITY || quality >= MAXQUALITY)
             return quality;
         return quality + improvement;
     }

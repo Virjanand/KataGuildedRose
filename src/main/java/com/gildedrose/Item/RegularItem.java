@@ -20,7 +20,7 @@ public class RegularItem extends SellableItem {
     }
 
     private int calculateUpdatedQuality(int quality, int improvement) {
-        if (quality == 0)
+        if (quality == MINQUALITY)
             return quality;
         return quality + improvement;
     }
