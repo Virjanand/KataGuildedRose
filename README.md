@@ -49,3 +49,5 @@
 - [ ] Check which methods can be removed on superclass
 - [ ] In factory method use switch
 - [ ] Refactor calculateUpdatedQuality method
+- [ ] Replace magic number 0 and 50 with MINQUALITY and MAXQUALITY
+- [ ] Extract method calculateUpdatedQuality if condition
