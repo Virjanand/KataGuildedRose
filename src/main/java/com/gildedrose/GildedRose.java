@@ -3,23 +3,19 @@ package com.gildedrose;
 import com.gildedrose.Item.Item;
 import com.gildedrose.Item.SellableItem;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
+import java.util.stream.Stream;
 
 class GildedRose {
     Item[] items;
-    private List<SellableItem> sellableItems = new ArrayList<>();
+    private Stream<SellableItem> sellableItems;
 
     GildedRose(Item[] items) {
         this.items = items;
-        for (Item item : items) {
-            sellableItems.add(SellableItem.create(item));
-        }
+        sellableItems = Arrays.stream(items).map(SellableItem::create);
     }
 
     void updateInventory() {
-        for (SellableItem sellableItem : sellableItems) {
-            sellableItem.updateItem();
-        }
+        sellableItems.forEach(SellableItem::updateItem);
     }
 }
