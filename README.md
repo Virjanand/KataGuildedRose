@@ -42,7 +42,8 @@
 - [x] Substitute if statements on regular item with subclass
 - [x] Create subclass of SellableItem AgedBrieItem
 - [x] Create subclass of Backstage passes
-- [ ] Create subclass of Sulfuras
-- [ ] Override updateItem method in AgedBrie, etc.
+- [x] Create subclass of Sulfuras
+- [x] Override updateItem method in AgedBrie, etc.
 - [x] Extract isSellInPassed check
 - [ ] Can constructor be made private?
+- [ ] Check which methods can be removed on superclass
