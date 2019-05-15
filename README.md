@@ -48,9 +48,9 @@
 - [ ] Can constructor be made private?
 - [ ] Check which methods can be removed on superclass
 - [x] In factory method use switch
-- [ ] Refactor calculateUpdatedQuality method
+- [x] Refactor calculateUpdatedQuality method
 - [x] Replace magic number 0 and 50 with MINQUALITY and MAXQUALITY
-- [ ] Extract method calculateUpdatedQuality if condition
+- [x] Extract method calculateUpdatedQuality if condition
 - [x] Refactor updateQuality: make if more readable
 - [x] Change check on 0 for quality after changing quality. To prevent negative quality
 - [x] Regular item quality 1 sellIn 0 - one day passes -> quality 0 sellIn -1

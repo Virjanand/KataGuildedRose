@@ -55,12 +55,10 @@ public abstract class SellableItem {
     }
 
     int calculateUpdatedQuality(int improvement) {
-        int newQuality = getItemQuality() + improvement;
-        if (newQuality <= MINQUALITY)
-            return MINQUALITY;
-        if(newQuality >= MAXQUALITY) {
-            return MAXQUALITY;
-        }
-        return newQuality;
+        return limitQuality(getItemQuality() + improvement);
+    }
+
+    private int limitQuality(int quality) {
+        return (quality > MAXQUALITY) ? MAXQUALITY : (quality < MINQUALITY ? MINQUALITY : quality);
     }
 }
