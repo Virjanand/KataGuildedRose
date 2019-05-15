@@ -13,7 +13,7 @@ public class RegularItem extends SellableItem {
 
     protected int updateQuality() {
         if (isSellInPassed())
-            return calculateUpdatedQuality(-1);
+            return calculateUpdatedQuality(-2);
         return calculateUpdatedQuality(-1);
     }
 }
