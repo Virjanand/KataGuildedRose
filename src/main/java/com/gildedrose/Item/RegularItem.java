@@ -1,8 +1,8 @@
 package com.gildedrose.Item;
 
-public class RegularItem extends SellableItem {
+class RegularItem extends SellableItem {
 
-    protected RegularItem(Item item) {
+    RegularItem(Item item) {
         super(item);
     }
 
@@ -11,7 +11,7 @@ public class RegularItem extends SellableItem {
         setItemSellIn(updateSellIn());
     }
 
-    protected int updateQuality() {
+    int updateQuality() {
         if (isSellInPassed())
             return calculateUpdatedQuality(-2);
         return calculateUpdatedQuality(-1);

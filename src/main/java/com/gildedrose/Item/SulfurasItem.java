@@ -1,6 +1,6 @@
 package com.gildedrose.Item;
 
-public class SulfurasItem extends SellableItem {
+class SulfurasItem extends SellableItem {
 
     SulfurasItem(Item item) {
         super(item);
@@ -11,11 +11,11 @@ public class SulfurasItem extends SellableItem {
         setItemSellIn(updateSellIn());
     }
 
-    protected int updateQuality() {
+    int updateQuality() {
         return getItemQuality();
     }
 
-    protected int updateSellIn() {
+    int updateSellIn() {
         return 0;
     }
 }

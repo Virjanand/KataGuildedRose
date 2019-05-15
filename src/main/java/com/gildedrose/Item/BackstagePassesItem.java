@@ -1,6 +1,6 @@
 package com.gildedrose.Item;
 
-public class BackstagePassesItem extends SellableItem {
+class BackstagePassesItem extends SellableItem {
 
     BackstagePassesItem(Item item) {
         super(item);
@@ -11,7 +11,7 @@ public class BackstagePassesItem extends SellableItem {
         setItemSellIn(updateSellIn());
     }
 
-    protected int updateQuality() {
+    int updateQuality() {
         if (isSellInPassed()) {
             return 0;
         }

@@ -1,8 +1,8 @@
 package com.gildedrose.Item;
 
-public class AgedBrieItem extends SellableItem {
+class AgedBrieItem extends SellableItem {
 
-    protected AgedBrieItem(Item item) {
+    AgedBrieItem(Item item) {
         super(item);
     }
 
@@ -11,7 +11,7 @@ public class AgedBrieItem extends SellableItem {
         setItemSellIn(updateSellIn());
     }
 
-    protected int updateQuality() {
+    int updateQuality() {
         if (isSellInPassed()) {
             return calculateUpdatedQuality(2);
         }

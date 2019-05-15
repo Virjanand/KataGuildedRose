@@ -5,7 +5,7 @@ public abstract class SellableItem {
     private static final int MAXQUALITY = 50;
     private static final int MINQUALITY = 0;
 
-    protected SellableItem(Item item) {
+    SellableItem(Item item) {
         this.item = item;
     }
 

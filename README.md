@@ -55,3 +55,4 @@
 - [x] Change check on 0 for quality after changing quality. To prevent negative quality
 - [x] Regular item quality 1 sellIn 0 - one day passes -> quality 0 sellIn -1
 - [x] Refactor: superclass now knows about subclasses -> move factory method to helper class
+- [x] Limit access classes and methods
