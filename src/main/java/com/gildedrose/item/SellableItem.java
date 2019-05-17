@@ -1,4 +1,4 @@
-package com.gildedrose.Item;
+package com.gildedrose.item;
 
 public abstract class SellableItem {
     private Item item;
@@ -24,7 +24,7 @@ public abstract class SellableItem {
         return item.quality;
     }
 
-    void setItemQuality(int quality) {
+    private void setItemQuality(int quality) {
         this.item.quality = quality;
     }
 
@@ -32,7 +32,7 @@ public abstract class SellableItem {
         return item.sellIn;
     }
 
-    void setItemSellIn(int days) {
+    private void setItemSellIn(int days) {
         this.item.sellIn = days;
     }
 

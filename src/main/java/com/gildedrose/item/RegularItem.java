@@ -1,14 +1,9 @@
-package com.gildedrose.Item;
+package com.gildedrose.item;
 
 class RegularItem extends SellableItem {
 
     RegularItem(Item item) {
         super(item);
-    }
-
-    public void updateItem() {
-        setItemQuality(updateQuality());
-        setItemSellIn(updateSellIn());
     }
 
     int updateQuality() {

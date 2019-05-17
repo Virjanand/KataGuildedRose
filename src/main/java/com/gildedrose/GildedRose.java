@@ -1,8 +1,8 @@
 package com.gildedrose;
 
-import com.gildedrose.Item.Item;
-import com.gildedrose.Item.ItemCreator;
-import com.gildedrose.Item.SellableItem;
+import com.gildedrose.item.Item;
+import com.gildedrose.item.ItemCreator;
+import com.gildedrose.item.SellableItem;
 
 import java.util.Arrays;
 

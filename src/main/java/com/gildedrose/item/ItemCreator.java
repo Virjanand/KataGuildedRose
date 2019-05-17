@@ -1,6 +1,10 @@
-package com.gildedrose.Item;
+package com.gildedrose.item;
 
 public class ItemCreator {
+
+    private ItemCreator() {
+
+    }
 
     public static SellableItem create(Item item) {
         switch (item.name) {
